@@ -71,16 +71,12 @@ abstract class BaseComponent
 
     public function addButton(string $type, string $title, string $action): self
     {
-        if (!in_array(strtolower($type), ButtonType::available())) {
-            throw new \InvalidArgumentException(sprintf('O tipo de botão %s não é valido.', $type));
-        }
-
-        $this->addNewButton($type, $title, $action);
+        $this->createButton($type, $title, $action);
 
         return $this;
     }
 
-    private function addNewButton(string $type, string $title, string $action)
+    private function createButton(string $type, string $title, string $action)
     {
         $button = [
             'type' => $type,
@@ -99,42 +95,41 @@ abstract class BaseComponent
             if (empty($button['title']) || empty($button['type']) || empty($button['action'])) {
                 throw new \InvalidArgumentException('Você deve informar todas as propriedades obrigatorias do botão');
             }
-
-            $this->addButton($button['type'], $button['title'], $button['action']);
+            $this->createButton($button['type'], $button['title'], $button['action']);
         }
     }
 
     public function addPrimaryButton(string $title, string $action): self
     {
-        $this->addNewButton(ButtonType::PRIMARY, $title, $action);
+        $this->createButton(ButtonType::PRIMARY, $title, $action);
 
         return $this;
     }
 
     public function addSecondaryButton(string $title, string $action): self
     {
-        $this->addNewButton(ButtonType::SECONDARY, $title, $action);
+        $this->createButton(ButtonType::SECONDARY, $title, $action);
 
         return $this;
     }
 
     public function addTertiaryButton(string $title, string $action): self
     {
-        $this->addNewButton(ButtonType::TERTIARY, $title, $action);
+        $this->createButton(ButtonType::TERTIARY, $title, $action);
 
         return $this;
     }
 
     public function addDangerButton(string $title, string $action): self
     {
-        $this->addNewButton(ButtonType::DANGER, $title, $action);
+        $this->createButton(ButtonType::DANGER, $title, $action);
 
         return $this;
     }
 
     public function addLinkButton(string $title, string $action): self
     {
-        $this->addNewButton(ButtonType::LINK, $title, $action);
+        $this->createButton(ButtonType::LINK, $title, $action);
 
         return $this;
     }
