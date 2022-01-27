@@ -1,0 +1,30 @@
+{
+    "name": "weslen.oliveira/common-ui-error",
+    "description": "PicPay Common UI Error",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "WeslenOliveira\\CommonUi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --colors=always --coverage-text"
+    },
+    "authors": [
+        {
+            "name": "Weslen Teche",
+            "email": "weslen.oliveira@picpay.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
